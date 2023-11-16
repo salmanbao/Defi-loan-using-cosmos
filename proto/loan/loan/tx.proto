@@ -6,7 +6,11 @@ option go_package = "loan/x/loan/types";
 
 // Msg defines the Msg service.
 service Msg {
-  rpc RequestLoan (MsgRequestLoan) returns (MsgRequestLoanResponse);
+  rpc RequestLoan   (MsgRequestLoan  ) returns (MsgRequestLoanResponse  );
+  rpc ApproveLoan   (MsgApproveLoan  ) returns (MsgApproveLoanResponse  );
+  rpc RepayLoan     (MsgRepayLoan    ) returns (MsgRepayLoanResponse    );
+  rpc LiquidateLoan (MsgLiquidateLoan) returns (MsgLiquidateLoanResponse);
+  rpc CancelLoan    (MsgCancelLoan   ) returns (MsgCancelLoanResponse   );
 }
 message MsgRequestLoan {
   string creator    = 1;
@@ -17,4 +21,32 @@ message MsgRequestLoan {
 }
 
 message MsgRequestLoanResponse {}
+
+message MsgApproveLoan {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgApproveLoanResponse {}
+
+message MsgRepayLoan {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgRepayLoanResponse {}
+
+message MsgLiquidateLoan {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgLiquidateLoanResponse {}
+
+message MsgCancelLoan {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgCancelLoanResponse {}
 
